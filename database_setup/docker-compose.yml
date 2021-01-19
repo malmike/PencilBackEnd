@@ -1,0 +1,16 @@
+version: '3.1'
+
+services:
+  mongodb:
+    image: "mongo"
+    restart: "always"
+    env_file:
+      - database.env
+    volumes:
+      - ./database_data/:/home/malmike21/sampledata/
+    ports:
+      - "27017:27017"
+
+volumes:
+  database:
+
