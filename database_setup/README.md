@@ -114,4 +114,5 @@ Username: `root`
 
 Password: `example`
 
-
+## Adding an index for ancestors in mongodb
+db.topics.createIndex({ancestors: 1})
