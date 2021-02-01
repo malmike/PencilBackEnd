@@ -3,7 +3,6 @@
 .gcloudignore
 node_modules/
 database_setup/
-src/
 
 lib-cov
 *.seed
