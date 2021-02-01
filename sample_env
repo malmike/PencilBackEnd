@@ -1,0 +1,10 @@
+# Set to production when deploying to production
+NODE_ENV=development
+
+# Node.js server configuration
+SERVER_PORT=8080
+
+# Replace the uri string with your MongoDB deployment's connection string.
+MONGO_URI=mongodb+srv://<user>:<password>@<cluster-url>?retryWrites=true&writeConcern=majority
+
+DB_NAME=pencildb
