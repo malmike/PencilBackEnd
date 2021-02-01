@@ -12,8 +12,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Check project setting
-        run: ls -la
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/.cache/yarn/v6
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install yarn and add dependencies
+        run: |
+          npm install -g yarn
+          yarn install
+      - run: yarn install --frozen-lockfile && yarn build
       - name: Deploy to App Engine
         uses: google-github-actions/deploy-appengine@v0.2.0
         with:
