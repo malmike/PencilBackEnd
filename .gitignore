@@ -37,3 +37,6 @@ Thumbs.db
 
 # Ignore built ts files
 dist/**/*
+
+# GCP service account key
+secret.json
