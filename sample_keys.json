@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://<user>:<password>@<cluster-url>?retryWrites=true&writeConcern=majority",
+  "port": 8080
+}
