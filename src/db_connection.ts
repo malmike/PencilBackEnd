@@ -1,4 +1,4 @@
-import { Db, MongoClient } from 'mongodb';
+import { Collection, Db, MongoClient } from 'mongodb';
 
 const mongoOptions = { useUnifiedTopology: true }
 
@@ -14,6 +14,18 @@ export class MongoDBConnection{
     try {
       await this._client.connect();
       this.database = this._client.db(dbName);
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getCollection(collectionName: string): Promise<Collection<any>> {
+    try {
+      await this._client.connect();
+      if (this.database) {
+        return this.database.collection(collectionName)
+      }
+      throw new Error('No existing database connection');
     } catch (error) {
       throw error;
     }
