@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { MongoDBConnection } from "./db_connection";
+import questionRoutes from './routes/question';
 import cors from "cors";
 import healthCheckRoute from "./routes/health-check";
 
@@ -20,8 +21,10 @@ app.get("/", (req, res) => {
     res.send('Welcome to pencil backend');
 });
 
+app.use('/search', questionRoutes(mongodb));
+
 // start the Express server
 app.listen(port, () => {
     // tslint:disable-next-line:no-console
     console.log( `server started at http://localhost:${ port }` );
-} );
+});
