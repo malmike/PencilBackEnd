@@ -5,9 +5,10 @@
   "main": "dist/app.js",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
-    "build": "tsc",
-    "prestart": "npm run build",
+    "build": "tsc -p .",
+    "prestart": "yarn build",
     "start": "node .",
+    "lint": "tslint -p .",
     "dev": "nodemon --config nodemon.json src/app.ts",
     "dev:debug": "nodemon --config nodemon.json --inspect-brk src/app.ts",
     "test": "test"
