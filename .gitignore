@@ -40,3 +40,5 @@ dist/**/*
 
 # GCP service account key
 secret.json
+
+keys.json
