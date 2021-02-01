@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Generate keys.json file
         run: |
-          echo '{"mongoURI": ${{ secrets.MONGO_URI }},"port": ${{ secrets.PENCIL_PORT }}}' > keys.json
+          echo '{"mongoURI": "${{ secrets.MONGO_URI }}","port": ${{ secrets.PENCIL_PORT }}}' > keys.json
       - name: List directory
         run: |
           pwd
